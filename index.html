@@ -3,45 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TarefaFácil - Ganhe Dinheiro com Tarefas Simples</title>
+    <title>TarefaFácil</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Link para ícones (exemplo: FontAwesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>TarefaFácil</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Tarefas</a></li>
-                <li><a href="#">Ajuda</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>Bem-vindo ao TarefaFácil</h1>
+    <p>Realize tarefas simples para ganhar pontos e saque pelo Pix!</p>
 
-    <section id="hero">
-        <h2>Ganhe Dinheiro com Tarefas Simples</h2>
-        <p>Realize tarefas rápidas e receba dinheiro de forma fácil e segura.</p>
-        <a href="#tarefas" class="cta-button">Comece Agora</a>
-    </section>
+    <div class="tabs">
+        <button class="tab-button" onclick="showTab('jogos')">Jogos</button>
+        <button class="tab-button" onclick="showTab('midias-sociais')">Mídias Sociais</button>
+        <button class="tab-button" onclick="showTab('outras')">Outras Tarefas</button>
+    </div>
 
-    <section id="tarefas">
-        <h2>Escolha uma Tarefa</h2>
-        <div class="tarefa-item">
-            <h3>Tarefa 1</h3>
-            <p>Descrição da tarefa...</p>
-            <button class="tarefa-button" onclick="pagarPix()">Pagar com Pix</button>
-        </div>
-        <!-- Adicione mais tarefas aqui -->
-    </section>
+    <div class="tab-content" id="jogos">
+        <h2>Tarefas de Jogos</h2>
+        <ul id="lista-jogos"></ul>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 TarefaFácil - Todos os direitos reservados.</p>
-    </footer>
+    <div class="tab-content" id="midias-sociais">
+        <h2>Tarefas de Mídias Sociais</h2>
+        <ul id="lista-midias-sociais"></ul>
+    </div>
+
+    <div class="tab-content" id="outras">
+        <h2>Outras Tarefas</h2>
+        <ul id="lista-outras"></ul>
+    </div>
+
+    <div id="saldo"></div>
 
     <script src="script.js"></script>
 </body>
