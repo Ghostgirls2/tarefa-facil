@@ -1,122 +1,27 @@
-let pontos = 0;
-const valorPorPonto = 0.10;
+// Inicialização do saldo de pontos
+let saldo = 0;
 
-// Lista de tarefas de Jogos
-const tarefasJogos = [
-    {
-        nome: "Jogar Subway Surfers e alcançar o nível 10",
-        objetivo: "Alcançar o nível 10 no Subway Surfers",
-        pontos: 5,
-        imagem: "https://via.placeholder.com/150?text=Subway+Surfers",
-        link: "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf",
-        tempoMinimo: 10,
-        tempoGasto: 0
-    },
-    {
-        nome: "Jogar Candy Crush Saga e alcançar o nível 15",
-        objetivo: "Alcançar o nível 15 no Candy Crush Saga",
-        pontos: 10,
-        imagem: "https://via.placeholder.com/150?text=Candy+Crush",
-        link: "https://play.google.com/store/apps/details?id=com.king.candycrushsaga",
-        tempoMinimo: 15,
-        tempoGasto: 0
-    },
-    {
-        nome: "Jogar Clash Royale e alcançar o nível 10",
-        objetivo: "Alcançar o nível 10 no Clash Royale",
-        pontos: 10,
-        imagem: "https://via.placeholder.com/150?text=Clash+Royale",
-        link: "https://play.google.com/store/apps/details?id=com.supercell.clashroyale",
-        tempoMinimo: 10,
-        tempoGasto: 0
-    },
-    {
-        nome: "Jogar Temple Run 2 e alcançar o nível 10",
-        objetivo: "Alcançar o nível 10 no Temple Run 2",
-        pontos: 5,
-        imagem: "https://via.placeholder.com/150?text=Temple+Run+2",
-        link: "https://play.google.com/store/apps/details?id=com.imangi.templerun2",
-        tempoMinimo: 10,
-        tempoGasto: 0
-    }
-];
-
-// Lista de outras tarefas (sem jogos)
-const outrasTarefas = [
-    {
-        nome: "Beber água",
-        objetivo: "Beber 1 copo de água",
-        pontos: 5
-    },
-    {
-        nome: "Assistir vídeo educacional por 20 minutos",
-        objetivo: "Assistir vídeo educacional por 20 minutos",
-        pontos: 25,
-        imagem: "https://via.placeholder.com/150?text=Vídeo+Educacional",
-        link: "https://www.youtube.com"
-    }
-];
-
-// Função para exibir as tarefas
-function exibirTarefas() {
-    exibirTarefasJogos();
-    exibirOutrasTarefas();
+// Exibir o saldo de pontos
+function atualizarSaldo() {
+    document.getElementById("saldo").innerText = `Saldo: ${saldo} pontos`;
 }
 
-// Função para exibir as tarefas de jogos
-function exibirTarefasJogos() {
-    const listaJogos = document.getElementById("lista-jogos");
-    listaJogos.innerHTML = "";
-    tarefasJogos.forEach(tarefa => {
-        const li = document.createElement("li");
-        li.innerHTML = `<img src="${tarefa.imagem}" alt="${tarefa.nome}"> ${tarefa.nome} <br> <a href="${tarefa.link}" target="_blank">Jogar ${tarefa.nome}</a>`;
-        const button = document.createElement("button");
-        button.textContent = `Concluir Tarefa (${tarefa.pontos} pontos)`;
-        button.onclick = function() {
-            concluirTarefa(tarefa.pontos);
-        };
-        li.appendChild(button);
-        listaJogos.appendChild(li);
-    });
-}
-
-// Função para exibir outras tarefas
-function exibirOutrasTarefas() {
-    const listaOutras = document.getElementById("lista-outras");
-    listaOutras.innerHTML = "";
-    outrasTarefas.forEach(tarefa => {
-        const li = document.createElement("li");
-        li.textContent = `${tarefa.nome} - Objetivo: ${tarefa.objetivo}`;
-        const button = document.createElement("button");
-        button.textContent = `Concluir Tarefa (${tarefa.pontos} pontos)`;
-        button.onclick = function() {
-            concluirTarefa(tarefa.pontos);
-        };
-        li.appendChild(button);
-        listaOutras.appendChild(li);
-    });
-}
-
-// Função para concluir a tarefa
-function concluirTarefa(pontosGanhos) {
-    pontos += pontosGanhos;
-    alert(`Você concluiu a tarefa e ganhou ${pontosGanhos} pontos!`);
-    exibirSaldo();
-}
-
-// Função para mostrar o saldo
-function exibirSaldo() {
-    const saldoElement = document.getElementById("saldo");
-    saldoElement.textContent = `Seu saldo de pontos é: ${pontos} pontos. R$ ${pontos * valorPorPonto}`;
-}
-
-// Função para mudar de aba
+// Mostrar a aba ativa
 function showTab(tabName) {
     const tabs = document.querySelectorAll('.tab-content');
-    tabs.forEach(tab => tab.classList.remove('active'));
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+    });
+
     document.getElementById(tabName).classList.add('active');
 }
 
-// Exibe tarefas ao carregar a página
-exibirTarefas();
-showTab('jogos');  // Exibe a aba de jogos inicialmente
+// Função para concluir uma tarefa
+function concluirTarefa(pontos) {
+    saldo += pontos;
+    atualizarSaldo();
+    alert(`Tarefa concluída! Você ganhou ${pontos} pontos.`);
+}
+
+// Exibir a aba "Jogos" por padrão
+showTab('jogos');
