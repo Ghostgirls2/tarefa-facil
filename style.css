@@ -1,94 +1,41 @@
-/* Reset de estilos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
 }
 
-header {
-    background-color: #6a4c9c; /* Lilás */
-    color: white;
+.container {
+    max-width: 800px;
+    margin: auto;
     padding: 20px;
-    text-align: center;
 }
 
-header .logo h1 {
-    font-size: 2.5rem;
+h1 {
+    color: #c084fc;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-#hero {
-    background-color: #9b6ac6; /* Roxo */
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.cta-button {
-    background-color: #fff;
-    color: #6a4c9c;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-#tarefas {
-    background-color: #fff;
-    padding: 40px;
-    text-align: center;
-}
-
-.tarefa-item {
-    background-color: #eee;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.tarefa-button {
-    background-color: #6a4c9c;
+.button {
+    background-color: #a855f7;
     color: white;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    margin-top: 10px;
     cursor: pointer;
 }
 
-.tarefa-button:hover {
-    background-color: #9b6ac6;
+.button:hover {
+    background-color: #9333ea;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+.task-card {
+    background: #2a2a2a;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
 }
