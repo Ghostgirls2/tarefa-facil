@@ -3,62 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TarefaFácil</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>TarefaFácil - Tarefas Simples para Você</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>TarefaFácil</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="logo">TarefaFácil</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="cadastro.php">Cadastrar</a></li>
+                <li><a href="tarefas.php">Tarefas</a></li>
+                <li><a href="ajuda.php">Ajuda</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <nav>
+
+    <section class="hero">
+        <h1>Bem-vindo ao TarefaFácil</h1>
+        <p>Realize tarefas rápidas e ganhe dinheiro facilmente. Comece agora mesmo!</p>
+        <a href="tarefas.php" class="btn">Começar Agora</a>
+    </section>
+
+    <section class="faq">
+        <h2>Perguntas Frequentes</h2>
         <ul>
-            <li><a href="#jogos">Jogos</a></li>
-            <li><a href="#midias">Mídias Sociais</a></li>
-            <li><a href="#outras">Outras Tarefas</a></li>
-            <li><a href="#saldo">Saldo e Saques</a></li>
+            <li><strong>Como funciona o site?</strong> Complete tarefas simples e ganhe dinheiro.</li>
+            <li><strong>Como me cadastrar?</strong> Clique em "Cadastrar" e preencha seus dados.</li>
+            <li><strong>Como receber meu pagamento?</strong> O pagamento é feito via PayPal ou Pix.</li>
         </ul>
-    </nav>
-    
-    <main>
-        <section id="jogos">
-            <h2>Jogos</h2>
-            <div class="tarefa">
-                <p>Jogar Roblox por 30 minutos</p>
-                <button onclick="completarTarefa('roblox', 10)">Concluir</button>
-            </div>
-            <div class="tarefa">
-                <p>Chegar ao nível 10 no Subway Surfers</p>
-                <button onclick="completarTarefa('subway', 15)">Concluir</button>
-            </div>
-        </section>
-        
-        <section id="midias">
-            <h2>Mídias Sociais</h2>
-            <div class="tarefa">
-                <p>Assistir 5 vídeos no TikTok</p>
-                <button onclick="completarTarefa('tiktok', 5)">Concluir</button>
-            </div>
-        </section>
-        
-        <section id="outras">
-            <h2>Outras Tarefas</h2>
-            <div class="tarefa">
-                <p>Beber água</p>
-                <button onclick="completarTarefa('agua', 2)">Concluir</button>
-            </div>
-        </section>
-        
-        <section id="saldo">
-            <h2>Saldo e Saques</h2>
-            <p>Saldo atual: <span id="saldoPontos">0</span> pontos</p>
-            <button onclick="sacar(10)">Sacar R$10</button>
-            <button onclick="sacar(30)">Sacar R$30</button>
-            <button onclick="sacar(50)">Sacar R$50</button>
-            <button onclick="sacar(100)">Sacar R$100</button>
-        </section>
-    </main>
-    
-    <script src="script.js"></script>
+    </section>
+
+    <footer>
+        <p>© 2025 TarefaFácil - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Notificação após marcar uma tarefa como completa
+        if (window.location.href.includes("marcar_completa.php")) {
+            alert("Tarefa marcada como concluída! Parabéns!");
+        }
+    </script>
 </body>
 </html>
