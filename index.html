@@ -7,31 +7,62 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Bem-vindo ao TarefaFácil</h1>
-    <p>Realize tarefas simples para ganhar pontos e saque pelo Pix!</p>
+    <h1>TarefaFácil</h1>
+    <p>Ganhe pontos completando tarefas simples e saque com Pix quando atingir o valor desejado!</p>
+    
+    <div id="saldo">Saldo: 0 pontos</div>
 
+    <!-- Abas de navegação -->
     <div class="tabs">
         <button class="tab-button" onclick="showTab('jogos')">Jogos</button>
-        <button class="tab-button" onclick="showTab('midias-sociais')">Mídias Sociais</button>
+        <button class="tab-button" onclick="showTab('midias')">Mídias Sociais</button>
         <button class="tab-button" onclick="showTab('outras')">Outras Tarefas</button>
     </div>
 
-    <div class="tab-content" id="jogos">
-        <h2>Tarefas de Jogos</h2>
-        <ul id="lista-jogos"></ul>
+    <!-- Conteúdo das abas -->
+    <div id="jogos" class="tab-content">
+        <h2>Jogos</h2>
+        <ul>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Jogo 1">
+                Jogo: Roblox - Complete a tarefa e ganhe 10 pontos.
+                <button onclick="concluirTarefa(10)">Concluir</button>
+            </li>
+            <li>
+                <img src="https://via.placeholder.com/50" alt="Jogo 2">
+                Jogo: Subway Surfers - Chegue no nível 10 para ganhar 5 pontos.
+                <button onclick="concluirTarefa(5)">Concluir</button>
+            </li>
+        </ul>
     </div>
 
-    <div class="tab-content" id="midias-sociais">
-        <h2>Tarefas de Mídias Sociais</h2>
-        <ul id="lista-midias-sociais"></ul>
+    <div id="midias" class="tab-content">
+        <h2>Mídias Sociais</h2>
+        <ul>
+            <li>
+                Entre no TikTok por 5 minutos.
+                <button onclick="concluirTarefa(3)">Concluir</button>
+            </li>
+            <li>
+                Assista a 5 vídeos no YouTube.
+                <button onclick="concluirTarefa(4)">Concluir</button>
+            </li>
+        </ul>
     </div>
 
-    <div class="tab-content" id="outras">
+    <div id="outras" class="tab-content">
         <h2>Outras Tarefas</h2>
-        <ul id="lista-outras"></ul>
+        <ul>
+            <li>
+                Beber água.
+                <button onclick="concluirTarefa(2)">Concluir</button>
+            </li>
+            <li>
+                Realizar uma tarefa no computador por 30 minutos.
+                <button onclick="concluirTarefa(6)">Concluir</button>
+            </li>
+        </ul>
     </div>
-
-    <div id="saldo"></div>
 
     <script src="script.js"></script>
 </body>
