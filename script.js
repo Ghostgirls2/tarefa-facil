@@ -1,133 +1,90 @@
-/* Definindo o estilo básico do corpo da página */
+/* Estilos Gerais */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1e1e1e;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1c1c;
     color: white;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-}
-
-/* Estilo do título principal */
-h1 {
-    font-size: 36px;
-    color: #a8a8d7; /* Lilás suave */
-    margin-bottom: 10px;
-}
-
-/* Estilo do subtítulo */
-p {
-    font-size: 18px;
-    color: #c1c1e1; /* Branco acinzentado */
-}
-
-/* Estilo das abas de navegação */
-.tabs {
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-    width: 100%;
-    padding: 10px 0;
-}
-
-.tab-button {
-    background-color: #6a6a91; /* Roxo claro */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 5px 5px 0 0;
-    font-size: 18px;
-    margin: 0 10px;
-}
-
-.tab-button:hover {
-    background-color: #4e4e7c; /* Roxo mais escuro */
-}
-
-/* Estilo das abas de conteúdo */
-.tab-content {
-    display: none;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #2a2a3e; /* Roxo escuro */
-    border-radius: 0 0 5px 5px;
-    width: 80%;
-    max-width: 900px;
-}
-
-/* Mostrar aba ativa */
-.tab-content.active {
-    display: block;
-}
-
-/* Estilo da lista de tarefas */
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    background-color: #3a3a52; /* Roxo escuro */
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-li img {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-    border-radius: 50%;
-}
-
-button {
-    padding: 8px 20px;
-    background-color: #6a6a91; /* Roxo claro */
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #4e4e7c; /* Roxo mais escuro */
-}
-
-/* Estilo para o saldo de pontos */
-#saldo {
-    padding: 15px;
-    background-color: #3a3a52;
-    margin: 20px 0;
     text-align: center;
-    font-size: 20px;
-    width: 80%;
-    max-width: 900px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Títulos */
+h1 {
+    color: #c084fc;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Botões */
+.button {
+    background-color: #a855f7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #9333ea;
+    transform: scale(1.05);
+}
+
+/* Cartões de Tarefas */
+.task-card {
+    background: #2a2a2a;
+    padding: 15px;
+    margin: 10px 0;
     border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
 }
 
-/* Estilo para links */
-a {
-    color: #a8a8d7; /* Lilás suave */
+.task-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Aba de Navegação */
+.navbar {
+    background: #2d2d2d;
+    padding: 10px;
+    border-bottom: 3px solid #c084fc;
+}
+
+.navbar a {
+    color: white;
     text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-a:hover {
-    text-decoration: underline;
+.navbar a:hover {
+    color: #c084fc;
 }
 
-/* Estilo da caixa de tarefas concluídas */
-button.concluida {
-    background-color: #5c5c91; /* Roxo mais claro */
+/* Rodapé */
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Layout Responsivo */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+    }
 }
