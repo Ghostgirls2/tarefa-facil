@@ -4,66 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TarefaFácil</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>TarefaFácil</h1>
-    <p>Ganhe pontos completando tarefas simples e saque com Pix quando atingir o valor desejado!</p>
+    <header>
+        <h1>TarefaFácil</h1>
+    </header>
     
-    <div id="saldo">Saldo: 0 pontos</div>
-
-    <!-- Abas de navegação -->
-    <div class="tabs">
-        <button class="tab-button" onclick="showTab('jogos')">Jogos</button>
-        <button class="tab-button" onclick="showTab('midias')">Mídias Sociais</button>
-        <button class="tab-button" onclick="showTab('outras')">Outras Tarefas</button>
-    </div>
-
-    <!-- Conteúdo das abas -->
-    <div id="jogos" class="tab-content">
-        <h2>Jogos</h2>
+    <nav>
         <ul>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="Jogo 1">
-                Jogo: Roblox - Complete a tarefa e ganhe 10 pontos.
-                <button onclick="concluirTarefa(10)">Concluir</button>
-            </li>
-            <li>
-                <img src="https://via.placeholder.com/50" alt="Jogo 2">
-                Jogo: Subway Surfers - Chegue no nível 10 para ganhar 5 pontos.
-                <button onclick="concluirTarefa(5)">Concluir</button>
-            </li>
+            <li><a href="#jogos">Jogos</a></li>
+            <li><a href="#midias">Mídias Sociais</a></li>
+            <li><a href="#outras">Outras Tarefas</a></li>
+            <li><a href="#saldo">Saldo e Saques</a></li>
         </ul>
-    </div>
-
-    <div id="midias" class="tab-content">
-        <h2>Mídias Sociais</h2>
-        <ul>
-            <li>
-                Entre no TikTok por 5 minutos.
-                <button onclick="concluirTarefa(3)">Concluir</button>
-            </li>
-            <li>
-                Assista a 5 vídeos no YouTube.
-                <button onclick="concluirTarefa(4)">Concluir</button>
-            </li>
-        </ul>
-    </div>
-
-    <div id="outras" class="tab-content">
-        <h2>Outras Tarefas</h2>
-        <ul>
-            <li>
-                Beber água.
-                <button onclick="concluirTarefa(2)">Concluir</button>
-            </li>
-            <li>
-                Realizar uma tarefa no computador por 30 minutos.
-                <button onclick="concluirTarefa(6)">Concluir</button>
-            </li>
-        </ul>
-    </div>
-
+    </nav>
+    
+    <main>
+        <section id="jogos">
+            <h2>Jogos</h2>
+            <div class="tarefa">
+                <p>Jogar Roblox por 30 minutos</p>
+                <button onclick="completarTarefa('roblox', 10)">Concluir</button>
+            </div>
+            <div class="tarefa">
+                <p>Chegar ao nível 10 no Subway Surfers</p>
+                <button onclick="completarTarefa('subway', 15)">Concluir</button>
+            </div>
+        </section>
+        
+        <section id="midias">
+            <h2>Mídias Sociais</h2>
+            <div class="tarefa">
+                <p>Assistir 5 vídeos no TikTok</p>
+                <button onclick="completarTarefa('tiktok', 5)">Concluir</button>
+            </div>
+        </section>
+        
+        <section id="outras">
+            <h2>Outras Tarefas</h2>
+            <div class="tarefa">
+                <p>Beber água</p>
+                <button onclick="completarTarefa('agua', 2)">Concluir</button>
+            </div>
+        </section>
+        
+        <section id="saldo">
+            <h2>Saldo e Saques</h2>
+            <p>Saldo atual: <span id="saldoPontos">0</span> pontos</p>
+            <button onclick="sacar(10)">Sacar R$10</button>
+            <button onclick="sacar(30)">Sacar R$30</button>
+            <button onclick="sacar(50)">Sacar R$50</button>
+            <button onclick="sacar(100)">Sacar R$100</button>
+        </section>
+    </main>
+    
     <script src="script.js"></script>
 </body>
 </html>
