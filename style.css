@@ -1,135 +1,94 @@
-/* Reset básico */
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #f0f0f0;
     color: #333;
 }
 
-/* Cabeçalho */
 header {
-    background-color: #6a0dad;
-    padding: 10px 0;
+    background-color: #6a4c9c; /* Lilás */
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-header nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
+header .logo h1 {
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style-type: none;
     padding: 0;
 }
 
-header nav ul li {
-    margin: 0 15px;
+nav ul li {
+    display: inline;
+    margin-right: 20px;
 }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-header nav ul li .logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-right: auto;
-}
-
-/* Seção principal */
-.hero {
-    background-color: #bda0db;
+nav ul li a {
     color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#hero {
+    background-color: #9b6ac6; /* Roxo */
+    color: white;
+    padding: 80px 20px;
     text-align: center;
-    padding: 50px 0;
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.hero .btn {
-    background-color: #9b7bbf;
-    padding: 10px 20px;
-    color: white;
+.cta-button {
+    background-color: #fff;
+    color: #6a4c9c;
+    padding: 15px 25px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.2rem;
     border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-.hero .btn:hover {
-    background-color: #8a6b98;
-}
-
-/* Seção FAQ */
-.faq {
-    background-color: #f3f3f3;
-    padding: 30px;
-    margin-top: 40px;
-}
-
-.faq h2 {
-    font-size: 28px;
+#tarefas {
+    background-color: #fff;
+    padding: 40px;
     text-align: center;
+}
+
+.tarefa-item {
+    background-color: #eee;
     margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.faq ul {
-    list-style: none;
-    padding: 0;
+.tarefa-button {
+    background-color: #6a4c9c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
-.faq ul li {
-    font-size: 18px;
-    margin-bottom: 10px;
+.tarefa-button:hover {
+    background-color: #9b6ac6;
 }
 
-/* Rodapé */
 footer {
     background-color: #333;
     color: white;
+    padding: 10px;
     text-align: center;
-    padding: 10px 0;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .faq h2 {
-        font-size: 24px;
-    }
-
-    .faq ul li {
-        font-size: 16px;
-    }
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
