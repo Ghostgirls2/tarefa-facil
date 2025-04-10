@@ -3,7 +3,6 @@ let tarefas = [
     { tarefa: 'Beber Água', pontos: 10, completada: false },
     { tarefa: 'Jogar Jogos por 5 Minutos', pontos: 20, completada: false },
     { tarefa: 'Assistir Vídeos no TikTok por 10 Minutos', pontos: 15, completada: false },
-    { tarefa: 'Fazer uma Pausa e Esticar as Pernas', pontos: 5, completada: false },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -91,6 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mostrar notificação
     function mostrarNotificacao(mensagem) {
-        alert(mensagem); // Exibe uma notificação simples
+        alert(mensagem);
     }
 });
