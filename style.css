@@ -1,94 +1,122 @@
-/* Reset de estilos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+let pontos = 0;
+const valorPorPonto = 0.10;
+
+// Lista de tarefas de Jogos
+const tarefasJogos = [
+    {
+        nome: "Jogar Subway Surfers e alcançar o nível 10",
+        objetivo: "Alcançar o nível 10 no Subway Surfers",
+        pontos: 5,
+        imagem: "https://via.placeholder.com/150?text=Subway+Surfers",
+        link: "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf",
+        tempoMinimo: 10,
+        tempoGasto: 0
+    },
+    {
+        nome: "Jogar Candy Crush Saga e alcançar o nível 15",
+        objetivo: "Alcançar o nível 15 no Candy Crush Saga",
+        pontos: 10,
+        imagem: "https://via.placeholder.com/150?text=Candy+Crush",
+        link: "https://play.google.com/store/apps/details?id=com.king.candycrushsaga",
+        tempoMinimo: 15,
+        tempoGasto: 0
+    },
+    {
+        nome: "Jogar Clash Royale e alcançar o nível 10",
+        objetivo: "Alcançar o nível 10 no Clash Royale",
+        pontos: 10,
+        imagem: "https://via.placeholder.com/150?text=Clash+Royale",
+        link: "https://play.google.com/store/apps/details?id=com.supercell.clashroyale",
+        tempoMinimo: 10,
+        tempoGasto: 0
+    },
+    {
+        nome: "Jogar Temple Run 2 e alcançar o nível 10",
+        objetivo: "Alcançar o nível 10 no Temple Run 2",
+        pontos: 5,
+        imagem: "https://via.placeholder.com/150?text=Temple+Run+2",
+        link: "https://play.google.com/store/apps/details?id=com.imangi.templerun2",
+        tempoMinimo: 10,
+        tempoGasto: 0
+    }
+];
+
+// Lista de outras tarefas (sem jogos)
+const outrasTarefas = [
+    {
+        nome: "Beber água",
+        objetivo: "Beber 1 copo de água",
+        pontos: 5
+    },
+    {
+        nome: "Assistir vídeo educacional por 20 minutos",
+        objetivo: "Assistir vídeo educacional por 20 minutos",
+        pontos: 25,
+        imagem: "https://via.placeholder.com/150?text=Vídeo+Educacional",
+        link: "https://www.youtube.com"
+    }
+];
+
+// Função para exibir as tarefas
+function exibirTarefas() {
+    exibirTarefasJogos();
+    exibirOutrasTarefas();
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+// Função para exibir as tarefas de jogos
+function exibirTarefasJogos() {
+    const listaJogos = document.getElementById("lista-jogos");
+    listaJogos.innerHTML = "";
+    tarefasJogos.forEach(tarefa => {
+        const li = document.createElement("li");
+        li.innerHTML = `<img src="${tarefa.imagem}" alt="${tarefa.nome}"> ${tarefa.nome} <br> <a href="${tarefa.link}" target="_blank">Jogar ${tarefa.nome}</a>`;
+        const button = document.createElement("button");
+        button.textContent = `Concluir Tarefa (${tarefa.pontos} pontos)`;
+        button.onclick = function() {
+            concluirTarefa(tarefa.pontos);
+        };
+        li.appendChild(button);
+        listaJogos.appendChild(li);
+    });
 }
 
-header {
-    background-color: #6a4c9c; /* Lilás */
-    color: white;
-    padding: 20px;
-    text-align: center;
+// Função para exibir outras tarefas
+function exibirOutrasTarefas() {
+    const listaOutras = document.getElementById("lista-outras");
+    listaOutras.innerHTML = "";
+    outrasTarefas.forEach(tarefa => {
+        const li = document.createElement("li");
+        li.textContent = `${tarefa.nome} - Objetivo: ${tarefa.objetivo}`;
+        const button = document.createElement("button");
+        button.textContent = `Concluir Tarefa (${tarefa.pontos} pontos)`;
+        button.onclick = function() {
+            concluirTarefa(tarefa.pontos);
+        };
+        li.appendChild(button);
+        listaOutras.appendChild(li);
+    });
 }
 
-header .logo h1 {
-    font-size: 2.5rem;
+// Função para concluir a tarefa
+function concluirTarefa(pontosGanhos) {
+    pontos += pontosGanhos;
+    alert(`Você concluiu a tarefa e ganhou ${pontosGanhos} pontos!`);
+    exibirSaldo();
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+// Função para mostrar o saldo
+function exibirSaldo() {
+    const saldoElement = document.getElementById("saldo");
+    saldoElement.textContent = `Seu saldo de pontos é: ${pontos} pontos. R$ ${pontos * valorPorPonto}`;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+// Função para mudar de aba
+function showTab(tabName) {
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-#hero {
-    background-color: #9b6ac6; /* Roxo */
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.cta-button {
-    background-color: #fff;
-    color: #6a4c9c;
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-#tarefas {
-    background-color: #fff;
-    padding: 40px;
-    text-align: center;
-}
-
-.tarefa-item {
-    background-color: #eee;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.tarefa-button {
-    background-color: #6a4c9c;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.tarefa-button:hover {
-    background-color: #9b6ac6;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+// Exibe tarefas ao carregar a página
+exibirTarefas();
+showTab('jogos');  // Exibe a aba de jogos inicialmente
