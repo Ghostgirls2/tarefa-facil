@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TarefaFácil - Tarefas Simples para Você</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>TarefaFácil - Ganhe Dinheiro com Tarefas Simples</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link para ícones (exemplo: FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
+        <div class="logo">
+            <h1>TarefaFácil</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="logo">TarefaFácil</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="cadastro.php">Cadastrar</a></li>
-                <li><a href="tarefas.php">Tarefas</a></li>
-                <li><a href="ajuda.php">Ajuda</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Tarefas</a></li>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Bem-vindo ao TarefaFácil</h1>
-        <p>Realize tarefas rápidas e ganhe dinheiro facilmente. Comece agora mesmo!</p>
-        <a href="tarefas.php" class="btn">Começar Agora</a>
+    <section id="hero">
+        <h2>Ganhe Dinheiro com Tarefas Simples</h2>
+        <p>Realize tarefas rápidas e receba dinheiro de forma fácil e segura.</p>
+        <a href="#tarefas" class="cta-button">Comece Agora</a>
     </section>
 
-    <section class="faq">
-        <h2>Perguntas Frequentes</h2>
-        <ul>
-            <li><strong>Como funciona o site?</strong> Complete tarefas simples e ganhe dinheiro.</li>
-            <li><strong>Como me cadastrar?</strong> Clique em "Cadastrar" e preencha seus dados.</li>
-            <li><strong>Como receber meu pagamento?</strong> O pagamento é feito via PayPal ou Pix.</li>
-        </ul>
+    <section id="tarefas">
+        <h2>Escolha uma Tarefa</h2>
+        <div class="tarefa-item">
+            <h3>Tarefa 1</h3>
+            <p>Descrição da tarefa...</p>
+            <button class="tarefa-button" onclick="pagar('paypal')">Pagar com PayPal</button>
+            <button class="tarefa-button" onclick="pagar('pix')">Pagar com Pix</button>
+        </div>
+        <!-- Adicione mais tarefas aqui -->
     </section>
 
     <footer>
-        <p>© 2025 TarefaFácil - Todos os direitos reservados.</p>
+        <p>&copy; 2025 TarefaFácil - Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        // Notificação após marcar uma tarefa como completa
-        if (window.location.href.includes("marcar_completa.php")) {
-            alert("Tarefa marcada como concluída! Parabéns!");
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
