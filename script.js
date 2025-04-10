@@ -1,90 +1,77 @@
-/* Estilos Gerais */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1c1c1c;
-    color: white;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    let pontos = 0;
+    let pontosNecessariosParaSaque = {
+        10: 1000,
+        30: 2500,
+        50: 4000,
+        100: 8000
+    };
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
+    const tarefas = [
+        { id: 1, descricao: "Beber água", pontos: 5, tipo: "saude" },
+        { id: 2, descricao: "Jogar Roblox por 10 minutos", pontos: 10, tipo: "jogos", link: "https://www.roblox.com" },
+        { id: 3, descricao: "Assistir 3 vídeos no TikTok", pontos: 7, tipo: "midias", link: "https://www.tiktok.com" },
+        { id: 4, descricao: "Chegar ao nível 10 no Subway Surfers", pontos: 15, tipo: "jogos", link: "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf" }
+    ];
 
-/* Títulos */
-h1 {
-    color: #c084fc;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
+    const listaTarefas = document.getElementById("listaTarefas");
+    const pontosDisplay = document.getElementById("pontos");
+    const saqueSelect = document.getElementById("saqueValor");
+    const botaoSaque = document.getElementById("sacarPix");
 
-/* Botões */
-.button {
-    background-color: #a855f7;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.button:hover {
-    background-color: #9333ea;
-    transform: scale(1.05);
-}
-
-/* Cartões de Tarefas */
-.task-card {
-    background: #2a2a2a;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-}
-
-.task-card:hover {
-    transform: translateY(-3px);
-}
-
-/* Aba de Navegação */
-.navbar {
-    background: #2d2d2d;
-    padding: 10px;
-    border-bottom: 3px solid #c084fc;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #c084fc;
-}
-
-/* Rodapé */
-.footer {
-    margin-top: 20px;
-    font-size: 12px;
-    color: #999;
-}
-
-/* Layout Responsivo */
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
+    function atualizarPontos() {
+        pontosDisplay.textContent = `Pontos: ${pontos}`;
     }
-    
-    .navbar a {
-        display: block;
-        margin: 10px 0;
+
+    function criarElementoTarefa(tarefa) {
+        const tarefaElemento = document.createElement("div");
+        tarefaElemento.classList.add("task-card");
+
+        const descricao = document.createElement("p");
+        descricao.textContent = tarefa.descricao;
+
+        const botaoConcluir = document.createElement("button");
+        botaoConcluir.classList.add("button");
+        botaoConcluir.textContent = "Concluir";
+        botaoConcluir.disabled = tarefa.tipo !== "saude"; // Somente "Beber água" pode ser concluída direto
+
+        if (tarefa.link) {
+            const link = document.createElement("a");
+            link.href = tarefa.link;
+            link.textContent = "Acessar";
+            link.target = "_blank";
+            tarefaElemento.appendChild(link);
+
+            link.addEventListener("click", function () {
+                setTimeout(() => {
+                    botaoConcluir.disabled = false;
+                }, 10000); // Simula 10 segundos de espera antes de liberar a conclusão
+            });
+        }
+
+        botaoConcluir.addEventListener("click", function () {
+            pontos += tarefa.pontos;
+            atualizarPontos();
+            botaoConcluir.disabled = true;
+            botaoConcluir.textContent = "Concluído";
+        });
+
+        tarefaElemento.appendChild(descricao);
+        tarefaElemento.appendChild(botaoConcluir);
+        listaTarefas.appendChild(tarefaElemento);
     }
-}
+
+    tarefas.forEach(criarElementoTarefa);
+    atualizarPontos();
+
+    botaoSaque.addEventListener("click", function () {
+        const valorSaque = parseInt(saqueSelect.value);
+        if (pontos >= pontosNecessariosParaSaque[valorSaque]) {
+            pontos -= pontosNecessariosParaSaque[valorSaque];
+            atualizarPontos();
+            alert(`Saque de R$${valorSaque} solicitado com sucesso!`);
+        } else {
+            alert("Você não tem pontos suficientes para esse saque.");
+        }
+    });
+});
